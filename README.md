@@ -1,14 +1,13 @@
-# ShapeLayout
-各种形状的path就可绘制出各种形状
 ### 自定义ViewGroup形状
 
 - 重写ViewGroup的 dispatchDraw方法
 - 利用 Paint 的setXfermode方法，根据path的形状绘制出不同形状图案的效果
 - 只替换各种形状的path就可绘制出各种形状
+
 > 说明：参考了一些网上的各种实现方式，这个是比较好的实现方式
 - 
-![device-2017-08-20-125810.png](http://upload-images.jianshu.io/upload_images/6456519-9dec1e2a5c533332.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/200)
 
+![device-2017-08-20-131344.png](http://upload-images.jianshu.io/upload_images/6456519-456eba678078d59b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/200)
 
 [github 地址](https://github.com/While1true/ShapeLayout)
 xml
@@ -18,12 +17,12 @@ xml
         android:layout_width="250dp"
         android:layout_height="250dp"
         android:layout_centerInParent="true"
-        app:corner_radius="5dp">
+        app:corner_radius="50dp">
 
         <ImageView
             android:layout_width="250dp"
             android:layout_height="250dp"
-            android:background="#666"
+            android:background="#f00"
             android:scaleType="fitXY"
             android:src="@mipmap/ic_launcher" />
 
@@ -79,8 +78,7 @@ public class RadiusRelativelayout extends RelativeLayout {
          */
         if (path == null) {
             path = new Path();
-            float v = dp2px(cornerRadius);
-            path.addRoundRect(new RectF(0, 0, getMeasuredWidth(), getMeasuredHeight()), v, v, Path.Direction.CCW);
+            path.addRoundRect(new RectF(0, 0, getMeasuredWidth(), getMeasuredHeight()), cornerRadius, cornerRadius, Path.Direction.CCW);
         }
 
         /**
@@ -96,10 +94,6 @@ public class RadiusRelativelayout extends RelativeLayout {
         canvas.drawPath(path, paint);
         canvas.restoreToCount(save);
         paint.setXfermode(null);
-    }
-
-    public float dp2px(float dp) {
-        return TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp, getResources().getDisplayMetrics());
     }
 }
 ```
