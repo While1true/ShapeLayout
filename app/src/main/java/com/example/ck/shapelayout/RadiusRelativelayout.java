@@ -63,8 +63,7 @@ public class RadiusRelativelayout extends RelativeLayout {
          */
         if (path == null) {
             path = new Path();
-            float v = dp2px(cornerRadius);
-            path.addRoundRect(new RectF(0, 0, getMeasuredWidth(), getMeasuredHeight()), v, v, Path.Direction.CCW);
+            path.addRoundRect(new RectF(0, 0, getMeasuredWidth(), getMeasuredHeight()), cornerRadius, cornerRadius, Path.Direction.CCW);
         }
 
         /**
@@ -82,7 +81,5 @@ public class RadiusRelativelayout extends RelativeLayout {
         paint.setXfermode(null);
     }
 
-    public float dp2px(float dp) {
-        return TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp, getResources().getDisplayMetrics());
-    }
+
 }
