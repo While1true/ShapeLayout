@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.ck.shapelayout.MainActivity">
+
+    <com.example.ck.shapelayout.RadiusRelativelayout
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:layout_centerInParent="true"
+        app:corner_radius="50dp">
+
+        <ImageView
+            android:layout_width="250dp"
+            android:layout_height="250dp"
+            android:background="#666"
+            android:scaleType="fitXY"
+            android:src="@mipmap/ic_launcher" />
+
+    </com.example.ck.shapelayout.RadiusRelativelayout>
+
+</RelativeLayout>
